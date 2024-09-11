@@ -1,0 +1,37 @@
+# Ignorar arquivos do sistema
+.DS_Store
+
+# Ignorar variáveis de ambiente
+.env
+
+# Ignorar arquivos de migração
+.migrations/
+.migrations/meta/
+
+# Ignorar arquivos de configuração específicos do editor
+settings.json
+
+# Ignorar lock files de pacotes (opcional, se você não deseja versioná-los)
+pnpm-lock.yaml
+
+# Ignorar arquivos de build e cache (dependendo do seu setup)
+node_modules/
+dist/
+build/
+
+# Ignorar arquivos gerados pelo Docker
+docker-compose.override.yml
+*.log
+
+# Ignorar arquivos gerados pelo TypeScript (caso use um diretório de build)
+**/*.js
+**/*.d.ts
+**/*.js.map
+
+# Ignorar cache do TypeScript
+.turbo/
+
+# Ignorar outros arquivos temporários ou sensíveis
+*.log
+tmp/
+cache/
