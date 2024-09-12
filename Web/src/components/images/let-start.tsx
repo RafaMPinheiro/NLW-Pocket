@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react'
 
 export const LetsStart = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -22,4 +22,4 @@ export const LetsStart = (props: SVGProps<SVGSVGElement>) => (
       fill="#27272A"
     />
   </svg>
-);
+)

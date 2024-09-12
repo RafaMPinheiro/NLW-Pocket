@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react'
 
 export const LogoIn = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -100,4 +100,4 @@ export const LogoIn = (props: SVGProps<SVGSVGElement>) => (
       </clipPath>
     </defs>
   </svg>
-);
+)

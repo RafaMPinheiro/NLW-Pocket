@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react'
 
 export const LogoInOrbit = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -97,4 +97,4 @@ export const LogoInOrbit = (props: SVGProps<SVGSVGElement>) => (
       </linearGradient>
     </defs>
   </svg>
-);
+)

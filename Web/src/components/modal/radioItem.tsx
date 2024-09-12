@@ -1,10 +1,10 @@
-import type { RadioGroupItemProps } from "@radix-ui/react-radio-group";
+import type { RadioGroupItemProps } from '@radix-ui/react-radio-group'
 
-import { RadioGroupIndicator, RadioGroupItem } from "../ui/radio-group";
+import { RadioGroupIndicator, RadioGroupItem } from '../ui/radio-group'
 
 interface RadioItemProps extends RadioGroupItemProps {
-  text: string;
-  emoji: string;
+  text: string
+  emoji: string
 }
 
 export const RadioItem = ({ value, emoji, text }: RadioItemProps) => {
@@ -14,5 +14,5 @@ export const RadioItem = ({ value, emoji, text }: RadioItemProps) => {
       <span className="text-sm leading-none font-medium">{text}</span>
       <span className="text-lg leading-none">{emoji}</span>
     </RadioGroupItem>
-  );
-};
+  )
+}

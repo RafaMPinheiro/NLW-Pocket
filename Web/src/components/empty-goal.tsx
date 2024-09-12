@@ -1,9 +1,9 @@
-import { Plus } from "lucide-react";
+import { Plus } from 'lucide-react'
 
-import { LetsStart } from "./images/let-start";
-import { LogoInOrbit } from "./images/logo-in-orbit";
-import { Button } from "./ui/button";
-import { DialogTrigger } from "./ui/dialog";
+import { LetsStart } from './images/let-start'
+import { LogoInOrbit } from './images/logo-in-orbit'
+import { Button } from './ui/button'
+import { DialogTrigger } from './ui/dialog'
 
 export const EmpytGoal = () => {
   return (
@@ -23,5 +23,5 @@ export const EmpytGoal = () => {
         </DialogTrigger>
       </div>
     </div>
-  );
-};
+  )
+}
