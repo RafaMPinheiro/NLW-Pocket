@@ -1,11 +1,9 @@
 import type { ComponentProps } from 'react'
 import { CircleCheck } from 'lucide-react'
 import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import 'dayjs/locale/pt-br'
+import ptBR from 'dayjs/locale/pt-BR'
 
-dayjs.extend(relativeTime)
-dayjs.locale('pt-br')
+dayjs.locale(ptBR)
 
 interface ListRootProps extends ComponentProps<'div'> {}
 
@@ -18,13 +16,13 @@ interface ListHeaderProps extends ComponentProps<'div'> {
 }
 
 const ListHeader = ({ date, ...props }: ListHeaderProps) => {
-  const relativeDate = dayjs(date).fromNow()
-  const formattedDate = dayjs(date).format('DD [de] MMMM')
-
+  const weekDay = dayjs(date).format('dddd')
+  const parsedDate = dayjs(date).format('D[ de ]MMM')
+  
   return (
     <h3 className="font-medium" {...props}>
-      <span className="capitalize">{relativeDate}</span>{' '}
-      <span className="text-xs text-zinc-400">({formattedDate})</span>
+      <span className="capitalize">{weekDay}</span>{' '}
+      <span className="text-xs text-zinc-400">({parsedDate})</span>
     </h3>
   )
 }
