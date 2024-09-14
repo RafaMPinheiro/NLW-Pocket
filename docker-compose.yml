@@ -1,0 +1,43 @@
+services:
+  pg:
+    image: bitnami/postgresql:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=pocket-js
+    volumes:
+      - pgdata:/bitnami/postgresql
+      - ./Server/db:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+  server:
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    ports:
+      - '3333:3333'
+    environment:
+      - DATABASE_URL=postgresql://docker:docker@pg:5432/pocket-js
+    depends_on:
+      - pg
+    networks:
+      - backend
+
+  web:
+    build:
+      context: ./Web
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    networks:
+      - backend
+
+volumes:
+  pgdata:
+
+networks:
+  backend:
+    driver: bridge

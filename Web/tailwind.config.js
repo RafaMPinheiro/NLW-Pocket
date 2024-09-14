@@ -4,7 +4,7 @@ export default {
 	theme: {
 		extend: {
 			gridTemplateRows: {
-				dialog: "min-content 1fr min-content",
+				dialog: "1fr min-content",
 			},
 		},
 	},
