@@ -1,7 +1,5 @@
 # Ignorar arquivos do sistema
 .DS_Store
-
-# Ignorar variáveis de ambiente
 .env
 
 # Ignorar arquivos de migração
@@ -35,3 +33,7 @@ docker-compose.override.yml
 *.log
 tmp/
 cache/
+
+# Excluir o tailwind.config.js do ignore
+!tailwind.config.js
+!postcss.config.js
