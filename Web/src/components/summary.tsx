@@ -37,20 +37,23 @@ export const Summary = () => {
             </span>
           ) : (
             <>
-              {Object.entries(summaryData.goalsPerDay).map(([date, goals]) => (
-                <List.ListRoot key={date}>
-                  <List.ListHeader date={date} />
-                  <List.ListContent>
-                    {goals.map(goal => (
-                      <List.ListItem
-                        key={goal.id}
-                        title={goal.title}
-                        createdAt={goal.createdAt}
-                      />
-                    ))}
-                  </List.ListContent>
-                </List.ListRoot>
-              ))}
+              {Object.entries(summaryData.goalsPerDay).map(
+                ([date, goalCompletions]) => (
+                  <List.ListRoot key={date}>
+                    <List.ListHeader date={date} />
+                    <List.ListContent>
+                      {goalCompletions.map(goalCompletion => (
+                        <List.ListItem
+                          key={goalCompletion.id}
+                          id={goalCompletion.id}
+                          title={goalCompletion.title}
+                          createdAt={goalCompletion.createdAt}
+                        />
+                      ))}
+                    </List.ListContent>
+                  </List.ListRoot>
+                )
+              )}
             </>
           )}
         </div>

@@ -1,7 +1,10 @@
 import type { ComponentProps } from 'react'
 import { CircleCheck } from 'lucide-react'
+import { useQueryClient } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 import 'dayjs/locale/pt-br'
+
+import { deleteGoalCompletion } from '../../http/delete-goal-completion'
 
 dayjs.locale('pt-br')
 
@@ -34,12 +37,21 @@ const ListContent = (props: ListContentProps) => {
 }
 
 interface ListItemProps {
+  id: string
   title: string
   createdAt: string
 }
 
-const ListItem = ({ title, createdAt }: ListItemProps) => {
+const ListItem = ({ id, title, createdAt }: ListItemProps) => {
+  const queryClient = useQueryClient()
   const time = dayjs(createdAt).format('HH:mm')
+
+  const handleDeleteGoalCompletion = async () => {
+    await deleteGoalCompletion(id)
+
+    queryClient.invalidateQueries({ queryKey: ['summary'] })
+    queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
+  }
 
   return (
     <li className="flex items-center gap-2">
@@ -50,6 +62,7 @@ const ListItem = ({ title, createdAt }: ListItemProps) => {
       </p>
       <button
         type="button"
+        onClick={handleDeleteGoalCompletion}
         className="text-xs text-zinc-500 underline cursor-pointer"
       >
         Desfazer

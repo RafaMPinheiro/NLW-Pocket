@@ -1,5 +1,3 @@
-name: db-pocket-js
-
 services:
   pg:
     image: bitnami/postgresql:latest
@@ -8,4 +6,10 @@ services:
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=pocket-js
+      - POSTGRES_DB=inorbit
+    volumes:
+      - pgdata:/bitnami/postgresql
+      - ./db:/docker-entrypoint-initdb.d
+
+volumes:
+  pgdata:
